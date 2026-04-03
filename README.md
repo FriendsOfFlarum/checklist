@@ -39,4 +39,4 @@ composer update fof/checklist
 
 - [Packagist](https://packagist.org/packages/fof/checklist)
 - [Github](https://github.com/FriendsOfFlarum/checklist)
-- [Discuss](https://discuss.flarum.org/d/xxx)
+- [Discuss](https://discuss.flarum.org/d/39018)
