@@ -1,44 +1,75 @@
 {
-  "name": "askvortsov/flarum-checklist",
-  "description": "Checklists for Flarum!",
+  "name": "fof/checklist",
+  "description": "Checklists for Flarum",
   "keywords": [
     "flarum"
   ],
   "type": "flarum-extension",
   "license": "MIT",
+  "homepage": "https://friendsofflarum.org",
+  "funding": [
+    {
+      "type": "website",
+      "url": "https://opencollective.com/fof/donate"
+    }
+  ],
   "support": {
-    "issues": "https://github.com/askvortsov1/flarum-checklist/issues",
-    "source": "https://github.com/askvortsov1/flarum-checklist",
-    "forum": "https://discuss.flarum.org/d/26457-checklists"
+    "issues": "https://github.com/FriendsOfFlarum/checklist/issues",
+    "source": "https://github.com/FriendsOfFlarum/checklist",
+    "forum": "https://discuss.flarum.org/d/xxx"
   },
   "require": {
-    "flarum/core": "^1.0.0",
-    "flarum/markdown": "^1.0.0"
+    "flarum/core": "^1.8",
+    "flarum/markdown": "*"
+  },
+  "require-dev": {
+    "flarum/phpstan": "^1.8",
+    "fof/rich-text": "*"
   },
   "authors": [
     {
+      "name": "FriendsOfFlarum",
+      "email": "team@friendsofflarum.org",
+      "role": "Developer"
+    },
+    {
       "name": "Alexander Skvortsov",
-      "email": "askvortsov@flarum.org",
       "role": "Developer"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Askvortsov\\FlarumChecklist\\": "src/"
+      "FoF\\Checklist\\": "src/"
     }
+  },
+  "replace": {
+    "askvortsov/flarum-checklist": "*"
   },
   "extra": {
     "flarum-extension": {
-      "title": "Checklists",
+      "title": "FoF Checklists",
       "category": "feature",
       "icon": {
         "name": "far fa-check-square",
-        "backgroundColor": "#6932D1",
+        "backgroundColor": "#e74c3c",
         "color": "#fff"
       },
       "optionalDependencies": [
-        "flarum/bbcode"
+        "flarum/bbcode",
+        "fof/rich-text"
       ]
+    },
+    "flarum-cli": {
+      "modules": {
+        "githubActions": true
+      }
     }
+  },
+  "scripts": {
+    "analyse:phpstan": "phpstan analyse",
+    "clear-cache:phpstan": "phpstan clear-result-cache"
+  },
+  "scripts-descriptions": {
+    "analyse:phpstan": "Run static analysis"
   }
 }

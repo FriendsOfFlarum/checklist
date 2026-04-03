@@ -1,15 +1,15 @@
 <?php
 
 /*
- * This file is part of askvortsov/flarum-checklist
+ * This file is part of fof/checklist
  *
- *  Copyright (c) 2021 Alexander Skvortsov.
+ *  Copyright (c) FriendsOfFlarum.
  *
  *  For detailed copyright and license information, please view the
  *  LICENSE file that was distributed with this source code.
  */
 
-namespace Askvortsov\FlarumChecklist;
+namespace FoF\Checklist;
 
 use Flarum\Extend;
 use s9e\TextFormatter\Configurator;
@@ -27,8 +27,10 @@ return [
 
     (new Extend\Formatter())
         ->configure(function (Configurator $config) {
-            $config->TaskLists;
+            $config->plugins->load('TaskLists');
         }),
 
-    (new Extend\Settings())->serializeToForum('askvortsov-checklist.cross_out_completed_items', 'askvortsov-checklist.cross_out_completed_items', 'boolval', true),
+    (new Extend\Settings())
+        ->default('fof-checklist.cross_out_completed_items', false)
+        ->serializeToForum('fof-checklist.cross_out_completed_items', 'fof-checklist.cross_out_completed_items', 'boolval'),
 ];
