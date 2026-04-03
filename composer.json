@@ -24,7 +24,7 @@
     },
     "require-dev": {
         "flarum/phpstan": "^2.0.0",
-        "fof/rich-text": "2.x-dev"
+        "fof/rich-text": "^2.0.0"
     },
     "authors": [
         {
@@ -72,6 +72,6 @@
     "scripts-descriptions": {
         "analyse:phpstan": "Run static analysis"
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "beta",
     "prefer-stable": true
 }
