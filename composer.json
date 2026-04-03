@@ -16,7 +16,7 @@
   "support": {
     "issues": "https://github.com/FriendsOfFlarum/checklist/issues",
     "source": "https://github.com/FriendsOfFlarum/checklist",
-    "forum": "https://discuss.flarum.org/d/xxx"
+    "forum": "https://discuss.flarum.org/d/39018"
   },
   "require": {
     "php": "^8.1",

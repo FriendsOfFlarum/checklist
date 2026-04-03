@@ -7,7 +7,7 @@ Integrates particularly well with [FoF Rich Text Editor](https://discuss.flarum.
 
 This extension is the successor to the abandoned [`askvortsov/flarum-checklist`](https://github.com/askvortsov1/flarum-checklist) package. If you are migrating, replace `askvortsov/flarum-checklist` with `fof/checklist` in your `composer.json`.
 
-![Screenshot](https://i.imgur.com/y2XFZhA.png)
+![Screenshot](https://cdn.discuss.flarum.org/2026-04-03/1775247515-455761-image-thumb.webp)
 
 ### Syntax
 
