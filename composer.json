@@ -1,76 +1,76 @@
 {
-  "name": "fof/checklist",
-  "description": "Checklists for Flarum",
-  "keywords": [
-    "flarum"
-  ],
-  "type": "flarum-extension",
-  "license": "MIT",
-  "homepage": "https://friendsofflarum.org",
-  "funding": [
-    {
-      "type": "website",
-      "url": "https://opencollective.com/fof/donate"
-    }
-  ],
-  "support": {
-    "issues": "https://github.com/FriendsOfFlarum/checklist/issues",
-    "source": "https://github.com/FriendsOfFlarum/checklist",
-    "forum": "https://discuss.flarum.org/d/39018"
-  },
-  "require": {
-    "php": "^8.1",
-    "flarum/core": "^1.8",
-    "flarum/markdown": "*"
-  },
-  "require-dev": {
-    "flarum/phpstan": "^1.8",
-    "fof/rich-text": "*"
-  },
-  "authors": [
-    {
-      "name": "FriendsOfFlarum",
-      "email": "team@friendsofflarum.org",
-      "role": "Developer"
+    "name": "fof/checklist",
+    "description": "Checklists for Flarum",
+    "keywords": [
+        "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "homepage": "https://friendsofflarum.org",
+    "funding": [
+        {
+            "type": "website",
+            "url": "https://opencollective.com/fof/donate"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/FriendsOfFlarum/checklist/issues",
+        "source": "https://github.com/FriendsOfFlarum/checklist",
+        "forum": "https://discuss.flarum.org/d/39018"
     },
-    {
-      "name": "Alexander Skvortsov",
-      "role": "Developer"
-    }
-  ],
-  "autoload": {
-    "psr-4": {
-      "FoF\\Checklist\\": "src/"
-    }
-  },
-  "replace": {
-    "askvortsov/flarum-checklist": "*"
-  },
-  "extra": {
-    "flarum-extension": {
-      "title": "FoF Checklists",
-      "category": "feature",
-      "icon": {
-        "name": "far fa-check-square",
-        "backgroundColor": "#e74c3c",
-        "color": "#fff"
-      },
-      "optionalDependencies": [
-        "flarum/bbcode",
-        "fof/rich-text"
-      ]
+    "require": {
+        "php": "^8.2",
+        "flarum/core": "^2.0.0-beta",
+        "flarum/markdown": "*"
     },
-    "flarum-cli": {
-      "modules": {
-        "githubActions": true
-      }
+    "require-dev": {
+        "flarum/phpstan": "^2.0.0-beta",
+        "fof/rich-text": "*"
+    },
+    "authors": [
+        {
+            "name": "FriendsOfFlarum",
+            "email": "team@friendsofflarum.org",
+            "role": "Developer"
+        },
+        {
+            "name": "Alexander Skvortsov",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "FoF\\Checklist\\": "src/"
+        }
+    },
+    "replace": {
+        "askvortsov/flarum-checklist": "*"
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "FoF Checklists",
+            "category": "feature",
+            "icon": {
+                "name": "far fa-check-square",
+                "backgroundColor": "#e74c3c",
+                "color": "#fff"
+            },
+            "optionalDependencies": [
+                "flarum/bbcode",
+                "fof/rich-text"
+            ]
+        },
+        "flarum-cli": {
+            "modules": {
+                "githubActions": true
+            }
+        }
+    },
+    "scripts": {
+        "analyse:phpstan": "phpstan analyse",
+        "clear-cache:phpstan": "phpstan clear-result-cache"
+    },
+    "scripts-descriptions": {
+        "analyse:phpstan": "Run static analysis"
     }
-  },
-  "scripts": {
-    "analyse:phpstan": "phpstan analyse",
-    "clear-cache:phpstan": "phpstan clear-result-cache"
-  },
-  "scripts-descriptions": {
-    "analyse:phpstan": "Run static analysis"
-  }
 }
