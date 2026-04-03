@@ -1,3 +1,1 @@
-module.exports = require('flarum-webpack-config')({
-  useExtensions: ['fof-rich-text'],
-});
+module.exports = require('flarum-webpack-config')({});
