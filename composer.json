@@ -19,13 +19,12 @@
         "forum": "https://discuss.flarum.org/d/39018"
     },
     "require": {
-        "php": "^8.2",
-        "flarum/core": "^2.0.0-beta",
+        "flarum/core": "^2.0.0",
         "flarum/markdown": "*"
     },
     "require-dev": {
-        "flarum/phpstan": "^2.0.0-beta",
-        "fof/rich-text": "*"
+        "flarum/phpstan": "^2.0.0",
+        "fof/rich-text": "2.x-dev"
     },
     "authors": [
         {
@@ -72,5 +71,7 @@
     },
     "scripts-descriptions": {
         "analyse:phpstan": "Run static analysis"
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

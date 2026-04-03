@@ -1,21 +1,41 @@
-ul>li[data-task-id] {
-  list-style-type: none;
+// Post view (PHP-rendered HTML)
+li:has(> p > input[data-task-id]),
+li:has(> input[data-task-id]) {
+  list-style: none !important;
+
+  &::marker {
+    content: '' !important;
+  }
+
+  > p {
+    margin: 0;
+  }
 }
 
 li span.fof-checked {
   text-decoration: line-through;
 }
 
+// Rich text editor (Tiptap NodeView)
+.ProseMirror li[data-task] {
+  list-style-type: none;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
 
-.ProseMirror li[data-task-id] {
-  position: relative;
+  label {
+    flex-shrink: 0;
+    cursor: pointer;
+    line-height: inherit;
 
-  input[type="checkbox"] {
-    position: absolute;
-    top: 5px;
+    input[type="checkbox"] {
+      margin: 0;
+      cursor: pointer;
+    }
   }
 
-  p {
-    margin-left: 17px !important;
+  > div {
+    flex: 1;
+    min-width: 0;
   }
 }
