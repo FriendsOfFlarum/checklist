@@ -5,7 +5,7 @@
 A [Flarum](http://flarum.org) extension. Checklists for Flarum! If you can edit posts with checklists, you can click them to toggle without having to open the edit composer.
 Integrates particularly well with [FoF Rich Text Editor](https://discuss.flarum.org/d/38789) but does not require it.
 
-This extension is the successor to the abandoned [`askvortsov/flarum-checklist`](https://github.com/askvortsov1/flarum-checklist) package. If you are migrating, replace `askvortsov/flarum-checklist` with `fof/checklist` in your `composer.json` — the packages are compatible and the setting keys have been updated automatically.
+This extension is the successor to the abandoned [`askvortsov/flarum-checklist`](https://github.com/askvortsov1/flarum-checklist) package. If you are migrating, replace `askvortsov/flarum-checklist` with `fof/checklist` in your `composer.json`.
 
 ![Screenshot](https://i.imgur.com/y2XFZhA.png)
 
