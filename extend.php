@@ -25,6 +25,9 @@ return [
 
     new Extend\Locales(__DIR__.'/resources/locale'),
 
+    (new Extend\Routes('api'))
+        ->post('/fof/checklist/tasks', 'fof-checklist.tasks.toggle', Api\ToggleTaskController::class),
+
     (new Extend\Formatter())
         ->configure(function (Configurator $config) {
             $config->plugins->load('TaskLists');
