@@ -1,4 +1,7 @@
 fof-checklist:
+  api:
+    invalid_request: The checklist item could not be updated.
+    task_not_found: The post was edited since the page loaded. Reload the page and try again.
   admin:
     settings:
       cross_out_completed_items: Cross out completed checklist items?

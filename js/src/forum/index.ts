@@ -1,7 +1,7 @@
 import app from 'flarum/forum/app';
 import { extend } from 'flarum/common/extend';
 import CommentPost from 'flarum/forum/components/CommentPost';
-import Post from 'flarum/common/models/Post';
+import type Post from 'flarum/common/models/Post';
 import configureRichText from '../common/configureRichText';
 
 app.initializers.add('fof-checklist', () => {
@@ -18,7 +18,9 @@ function processChecklists(this: InstanceType<typeof CommentPost>): void {
   const strikeOut = !!app.forum.attribute('fof-checklist.cross_out_completed_items');
   const selector = 'li:has(> p > input[data-task-id]), li:has(> input[data-task-id])';
 
-  this.$(selector).each(function (index) {
+  const boxes = this.$('input[data-task-id]');
+
+  this.$(selector).each(function () {
     const li = $(this);
     const input = li.find('input[data-task-id]')[0] as HTMLInputElement;
     if (!input) return;
@@ -38,25 +40,32 @@ function processChecklists(this: InstanceType<typeof CommentPost>): void {
     if (!post.canEdit()) return;
 
     input.disabled = false;
-    input.onchange = () => toggleCheckbox(post, index, input.checked);
+    input.onchange = () => toggleTask(post, input, boxes);
   });
 }
 
-function toggleCheckbox(post: Post, index: number, checked: boolean): void {
-  let match: RegExpExecArray | null;
-  let remaining = index;
-  const checkListRegex = /([\-\*]|[0-9]+\.) (\[[ xX]\])/g;
-  const currContent = post.content();
-  if (!currContent) return;
+/**
+ * Save the clicked task by its id, which the server finds in the post's stored
+ * XML. The post's boxes wait for the save, one at a time, and the click is
+ * undone if it fails, so a box always shows what was saved.
+ */
+function toggleTask(post: Post, input: HTMLInputElement, boxes: JQuery<HTMLElement>): void {
+  const checked = input.checked;
 
-  while ((match = checkListRegex.exec(currContent))) {
-    if (remaining === 0) {
-      const valIndex = match.index + match[0].length - 2;
-      const content = currContent.substring(0, valIndex) + (checked ? 'x' : ' ') + currContent.substring(valIndex + 1);
+  boxes.prop('disabled', true);
 
-      post.save({ content }).then(() => m.redraw());
-      return;
-    }
-    remaining--;
-  }
+  app
+    .request({
+      method: 'POST',
+      url: `${app.forum.attribute('apiUrl')}/fof/checklist/tasks`,
+      body: { postId: post.id(), taskId: input.dataset.taskId, checked },
+    })
+    .then((payload) => app.store.pushPayload(payload as any))
+    .catch(() => {
+      input.checked = !checked;
+    })
+    .finally(() => {
+      boxes.prop('disabled', false);
+      m.redraw();
+    });
 }
